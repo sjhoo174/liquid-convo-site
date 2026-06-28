@@ -42,10 +42,22 @@ Cloudflare Pages settings:
 - Root directory: `/`
 - Node version: 22 or later
 
-You can also deploy from the CLI after authenticating Wrangler:
+If your Cloudflare project is configured as Workers Static Assets or runs `wrangler deploy`, this repo also includes:
 
-```bash
-npm run deploy:cloudflare
+```toml
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
 ```
 
-The `public/_redirects` file is included so client-side routes fall back to `index.html`.
+So either deployment path works.
+
+Deploy commands:
+
+```bash
+# Workers Static Assets
+npm run deploy:cloudflare
+
+# Cloudflare Pages direct upload
+npm run deploy:pages
+```

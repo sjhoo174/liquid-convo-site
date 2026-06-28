@@ -1,3 +1,9 @@
 name = "liquid-convo"
-pages_build_output_dir = "dist"
 compatibility_date = "2026-06-28"
+pages_build_output_dir = "dist"
+
+# Supports both Cloudflare Pages builds and Workers Static Assets deploys.
+# If Cloudflare runs `wrangler deploy`, Wrangler needs this assets block.
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
